@@ -19,6 +19,13 @@ public struct RLGButtonView: View {
     public var title: String
      @Binding public var isFocused: Bool
     public var isDisabled: Bool = false
+    public init(styleType: ButtonStyleType, title: String, isFocused: Binding<Bool>, isDisabled: Bool) {
+        self.styleType = styleType
+        self.title = title
+        self._isFocused = isFocused
+        self.isDisabled = isDisabled
+    }
+
     public var body: some View {
         Button(action: {
             // Action
@@ -87,9 +94,9 @@ public struct RLGButtonView: View {
 
 #Preview {
     RLGButtonView(styleType: .primary, title: "Primary Button", isFocused: .constant(true), isDisabled: false)
-    RLGButtonView(styleType: .secondary, title: "Secondary Button", isFocused: .constant(false), isDisabled: false)
-    RLGButtonView(styleType: .destructive, title: "Destructive Button", isFocused: .constant(false), isDisabled: false)
-    RLGButtonView(styleType: .ghost, title: "Ghost Button", isFocused: .constant(false), isDisabled: false)
-    RLGButtonView(styleType: .text, title: "Text Button", isFocused: .constant(false), isDisabled: false)
+    RLGButtonView(styleType: .secondary, title: "Secondary Button", isFocused: .constant(true), isDisabled: false)
+    RLGButtonView(styleType: .destructive, title: "Destructive Button", isFocused: .constant(true), isDisabled: false)
+    RLGButtonView(styleType: .ghost, title: "Ghost Button", isFocused: .constant(true), isDisabled: false)
+    RLGButtonView(styleType: .text, title: "Text Button", isFocused: .constant(true), isDisabled: false)
 
 }
